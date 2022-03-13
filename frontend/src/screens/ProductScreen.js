@@ -19,16 +19,16 @@ const ProductScreen = ({ match }) => {
         <Col md={3}>
           <ListGroup variant='flush'>
               <ListGroup.Item>
-                <h3>{product.name}</h3>
+                <h3><b>{product.name}</b></h3>
+              </ListGroup.Item>
+              <ListGroup.Item>
+               <b> Price: Rs.{product.price}</b>
+              </ListGroup.Item>
+              <ListGroup.Item align='justify'>
+               <b> Description:</b><br />{product.description}
               </ListGroup.Item>
               <ListGroup.Item>
                 <Rating value={product.rating} text={`${product.numReviews} Reviews`} />
-              </ListGroup.Item>
-              <ListGroup.Item>
-                Price: Rs.{product.price}
-              </ListGroup.Item>
-              <ListGroup.Item>
-                Description: {product.description}
               </ListGroup.Item>
           </ListGroup>
           
