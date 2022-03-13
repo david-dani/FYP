@@ -1,4 +1,5 @@
 import React from 'react'
+
 import {Navbar, Nav, Container} from 'react-bootstrap'
 
 const Header = () => {
@@ -6,7 +7,9 @@ const Header = () => {
    <header>
     <Navbar className='py-2' bg="dark" variant='dark' expand="lg" collapseOnSelect>
       <Container>
-        <Navbar.Brand href="/">New Creation Traders</Navbar.Brand>
+        
+        <Navbar.Brand href='/'>New Creation Traders</Navbar.Brand>
+      
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
         <Nav className='ms-auto'>
