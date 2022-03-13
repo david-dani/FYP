@@ -20,7 +20,7 @@ const products = [
       'Acer Predator Helios 300 2021 with 10th Gen Intel Core i5-10300H processor, NVIDIA GeForce RTX 3060 Graphics Card with 6GB of dedicated GDDR6 VRAM, 8GB DDR4 RAM (Expandable up to 32GB), 512GB SSD storage, Additional HDD slot for storage expansion, 15.6-inch IPS display; Full-HD (1920 x 1080 pixels) resolution; 144Hz Refresh Rate; 3ms Overdrive.',
     brand: 'Acer',
     category: 'Laptop',
-    price: 16500,
+    price: 165000,
     countInStock: 7,
     rating: 4.0,
     numReviews: 8,
