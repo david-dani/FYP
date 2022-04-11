@@ -1,0 +1,13 @@
+{
+  "name": "fyp",
+  "version": "1.0.0",
+  "description": "MERN Shopping Cart App for New Creation Traders",
+  "main": "server.js",
+  "scripts": {
+    "start": "node backend/server"
+  },
+  "author": "David Dani",
+  "license": "BIT"
+  
+}
+
