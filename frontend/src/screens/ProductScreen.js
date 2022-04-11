@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import {Row, Col, Image, ListGroup, Card, Button} from 'react-bootstrap'
 import Rating from '../components/Rating'
+import axios from 'axios'
 
 const ProductScreen = ({ match }) => {
   const [product, setProduct] = useState({})
@@ -14,7 +15,7 @@ const ProductScreen = ({ match }) => {
     }
 
     fetchProduct ()
-  }, [])
+  }, [match])
   
   return (
     <>

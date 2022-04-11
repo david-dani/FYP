@@ -3,11 +3,21 @@
   "version": "1.0.0",
   "description": "MERN Shopping Cart App for New Creation Traders",
   "main": "server.js",
+  "type": "module",
   "scripts": {
-    "start": "node backend/server"
+    "start": "node backend/server",
+    "server": "nodemon backend/server",
+    "client": "npm start --prefix frontend",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "author": "David Dani",
-  "license": "BIT"
-  
+  "license": "BIT",
+  "dependencies": {
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3"
+  },
+  "devDependencies": {
+    "concurrently": "^7.1.0",
+    "nodemon": "^2.0.15"
+  }
 }
-
