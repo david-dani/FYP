@@ -1,6 +1,5 @@
 const products = [
   {
-    _id: '1',
     name: 'Acer Nito Laptop',
     image: '/images/AcerNitro.jpg',
     description:
@@ -13,7 +12,6 @@ const products = [
     numReviews: 12,
   },
   {
-    _id: '2',
     name: 'Acer Predator Helios Gaming',
     image: '/images/AcerPredatorHelios.jpg',
     description:
@@ -26,7 +24,6 @@ const products = [
     numReviews: 8,
   },
   {
-    _id: '3',
     name: 'Asus Rog Strix Scar',
     image: '/images/AsusRog.jpg',
     description:
@@ -39,7 +36,6 @@ const products = [
     numReviews: 12,
   },
   {
-    _id: '4',
     name: 'Dell Inspiron',
     image: '/images/DellInspiron.jpg',
     description:
@@ -52,7 +48,6 @@ const products = [
     numReviews: 12,
   },
   {
-    _id: '5',
     name: 'Lenovo Ideapad',
     image: '/images/LenevoIdeapad.jpg',
     description:
@@ -65,7 +60,6 @@ const products = [
     numReviews: 10,
   },
   {
-    _id: '6',
     name: 'HP Pavilion',
     image: '/images/PavilionGaming.jpg',
     description:
