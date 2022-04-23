@@ -34,16 +34,20 @@ const dispatch = useDispatch()
       <Link className ='btn btn-light my-3' to='/'>
         Go Back
       </Link>
-      {loading ? <Loader /> : error ? <Message variant='danger'>{error}</Message> :(      
+      {loading ? (
+        <Loader />
+      ) : error ? (
+        <Message variant='danger'>{error}</Message>
+      ) :(      
       <Row>
-        <Col md={6}>
-          <Image src={product.image} alt={product.name} fluid />
-        </Col>
-        <Col md={3}>
-          <ListGroup variant='flush'>
-              <ListGroup.Item>
-                <h3><b>{product.name}</b></h3>
-              </ListGroup.Item>
+      <Col md={6}>
+        <Image src={product.image} alt={product.name} fluid />
+      </Col>
+      <Col md={3}>
+        <ListGroup variant='flush'>
+          <ListGroup.Item>
+            <h3>{product.name}</h3>
+          </ListGroup.Item>
               <ListGroup.Item>
                <b> Price: Rs.{product.price}</b>
               </ListGroup.Item>
