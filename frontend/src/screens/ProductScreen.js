@@ -102,6 +102,7 @@ const dispatch = useDispatch()
               <ListGroup.Item align='center'>
               <Button
                       onClick={addToCartHandler}
+                      variant='dark'
                       className='btn-block'
                       type='button'
                       disabled={product.countInStock === 0}

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Form, Button, Col } from 'react-bootstrap'
+import { Form, Button, Col, ListGroup } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import FormContainer from '../components/FormContainer'
 import CheckoutSteps from '../components/CheckoutSteps'
@@ -28,9 +28,12 @@ const PaymentScreen = ({ history }) => {
       <CheckoutSteps step1 step2 step3 />
       <h1>Payment Method</h1>
       <Form onSubmit={submitHandler}>
+        
         <Form.Group>
-          <Form.Label as='legend'>Select Method</Form.Label>
-          <Col>
+        <Col>
+          <ListGroup.Item>
+          <Form.Label as='legend'><b>Select Method</b></Form.Label>
+          
             <Form.Check
               type='radio'
               label='PayPal or Credit Card'
@@ -40,20 +43,24 @@ const PaymentScreen = ({ history }) => {
               checked
               onChange={(e) => setPaymentMethod(e.target.value)}
             ></Form.Check>
-            {/* <Form.Check
+            
+             <Form.Check
               type='radio'
-              label='Stripe'
-              id='Stripe'
+              label='Khalti'
+              id='Khalti'
               name='paymentMethod'
-              value='Stripe'
+              value='Khalti'
               onChange={(e) => setPaymentMethod(e.target.value)}
-            ></Form.Check> */}
+            ></Form.Check> 
+            </ListGroup.Item>
           </Col>
         </Form.Group>
-
-        <Button type='submit' variant='primary'>
+        <br></br>
+        <ListGroup.Item align='center'> 
+        <Button type='submit' variant='dark'>
           Continue
         </Button>
+        </ListGroup.Item>
       </Form>
     </FormContainer>
   )

@@ -1,16 +1,21 @@
 import React, { useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useParams, useLocation } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { Row, Col, ListGroup, Image, Form, Button, Card } from 'react-bootstrap'
 import Message from '../components/Message'
 import { addToCart, removeFromCart } from '../actions/cartActions'
 
-const CartScreen = ({ match, location, history }) => {
-    const productID = match.params.div
+const CartScreen = ({ history }) => {
+    let { id } = useParams();
+    const productID = id
+    const location = useLocation();
+    
 
     const qty = location.search ? Number(location.search.split('=')[1]) : 1
 
     const dispatch = useDispatch()
+
+   
 
     const cart = useSelector(state => state.cart)
     const { cartItems } = cart
@@ -28,6 +33,7 @@ const CartScreen = ({ match, location, history }) => {
     }
 
     const checkoutHandler= () => {
+        
         history.push('/login?redirect=shipping')
     }
   return (
@@ -45,7 +51,7 @@ const CartScreen = ({ match, location, history }) => {
                             <Col md={3}>
                                 <Link to={`/product/${item.product}`}>{item.name}</Link>
                             </Col>
-                            <Col md={2}>${item.price}</Col>
+                            <Col md={2}>Rs.{item.price}</Col>
                             <Col md={2}>
                                 <Form.Control
                                 as='select'
@@ -94,9 +100,10 @@ const CartScreen = ({ match, location, history }) => {
                 .reduce((acc, item) => acc + item.qty * item.price, 0)
                 .toFixed(2)}
             </ListGroup.Item>
-            <ListGroup.Item>
+            <ListGroup.Item align='center'>
               <Button
                 type='button'
+                variant='dark'
                 className='btn-block'
                 disabled={cartItems.length === 0}
                 onClick={checkoutHandler}

@@ -23,6 +23,7 @@ const ShippingScreen = ({ history }) => {
   }
 
   return (
+    
     <FormContainer>
       <CheckoutSteps step1 step2 />
       <h1>Shipping</h1>
@@ -70,7 +71,7 @@ const ShippingScreen = ({ history }) => {
             onChange={(e) => setCountry(e.target.value)}
           ></Form.Control>
         </Form.Group>
-
+        <br></br>
         <Button type='submit' variant='dark'>
           Continue
         </Button>
