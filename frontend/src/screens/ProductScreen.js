@@ -5,6 +5,7 @@ import {Row, Col, Image, ListGroup, Card, Button, Form} from 'react-bootstrap'
 import Rating from '../components/Rating'
 import Message from '../components/Message'
 import Loader from '../components/Loader'
+import Meta from '../components/Meta'
 import { listProductDetails,createProductReview } from '../actions/productActions'
 import { PRODUCT_CREATE_REVIEW_RESET } from '../constants/productConstants'
 
@@ -59,7 +60,8 @@ const dispatch = useDispatch()
 
   return (
     <>
-      <Link className ='btn btn-light my-3' to='/'>
+    <Meta title={product.name} />
+      <Link className ='btn btn-dark my-3' to='/'>
         Go Back
       </Link>
       {loading ? (
