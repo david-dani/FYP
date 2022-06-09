@@ -1,6 +1,32 @@
+
 main{
     min-height: 80vh;
 }
+
+:root {
+  --color-bg: #fff;
+  --color-text: #2c2c2a;
+  
+}
+
+html[theme="dark"] {
+  --color-bg:#303030;
+  --color-text: #e4e6eb;
+
+}
+body{
+  background-color: var(--color-bg) !important;
+  color: var(--color-text) !important;
+}
+.card{
+  background-color: var(--color-bg) !important;
+  color: var(--color-text) !important;
+  border: 1px solid gray !important;
+}
+table{
+  color: var(--color-text) !important;
+}
+
 h3{
     padding: 1rem 0;
 }
@@ -42,4 +68,30 @@ h2{
 .carousel a {
   margin: 0 auto;
 }
+.theme-heading {
+    font-weight: 600;
+    margin-block: 1rem 1.7rem;
+    font-size: 22px !important;
+  }
+
+  .light-theme-btn {
+    background-color: #fff ;
+    cursor: pointer;
+    height: 40px;
+    width: 40px;
+    border: none;
+    border-radius: 0.5rem;
+    border: 0.2rem solid gray;
+  }
+
+  .dark-theme-btn {
+    background-color: #171613 ;
+    cursor: pointer;
+    height: 40px;
+    width: 40px;
+    border: 0.2rem solid gray;
+    border-radius: 0.5rem;
+    margin-left: 0.3rem;
+  }
+
 
