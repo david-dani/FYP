@@ -20,7 +20,7 @@ const HomeScreen = ({ match }) => {
   const dispatch = useDispatch()
 
   const productList = useSelector((state) => state.productList)
-  const { loading, error, products, page, pages } = productList
+  const { loading, error, products, pages } = productList
 
   useEffect(() => {
     dispatch(listProducts(keyword, activePage))
@@ -37,7 +37,7 @@ const HomeScreen = ({ match }) => {
           Go Back
         </Link>
       )}
-        <h1 align='center'><b> Search Result: </b></h1>
+        <h1 align='center' className='mt-4' style={{fontSize:'40px',}}><b> Latest Products </b></h1>
         {loading ? <Loader /> : error ? <Message variant='danger'>{error}</Message> :  <Row>
             {products.map(product =>(
                 <Col key={product._id} sm={12} md={6} lg={4} xl={3}>

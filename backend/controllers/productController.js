@@ -25,6 +25,25 @@ const getProducts = asyncHandler(async (req, res) => {
   res.json({ products, page, pages: Math.ceil(count / pageSize) })
 })
 
+const getRelatedProduct = asyncHandler(async (req, res) => {
+  const { productId } = req.params;
+  const product = await Product.findById(productId);
+  if (product) {
+    const relatedProduct = await Product.find({
+      _id: { $ne: product._id },
+      
+    }).limit(3);
+  
+    if (relatedProduct) {
+      res.status(200).json({
+        relatedProduct,
+      });
+    }
+
+}
+}
+);
+
 // @desc    Fetch single product
 // @route   GET /api/products/:id
 // @access  Public
@@ -165,4 +184,5 @@ export {
   updateProduct,
   createProductReview,
   getTopProducts,
+  getRelatedProduct,
 }

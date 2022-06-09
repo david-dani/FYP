@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import {useDispatch, useSelector} from 'react-redux'
 import {Row, Col, Image, ListGroup, Card, Button, Form} from 'react-bootstrap'
 import Rating from '../components/Rating'
@@ -8,13 +8,18 @@ import Loader from '../components/Loader'
 import Meta from '../components/Meta'
 import { listProductDetails,createProductReview } from '../actions/productActions'
 import { PRODUCT_CREATE_REVIEW_RESET } from '../constants/productConstants'
+import Product from '../components/Product'
+import axios from 'axios'
 
 const ProductScreen = ({ history, match }) => {
   const [qty, setQty] = useState(1)
   const [rating, setRating] = useState(0)
   const [comment, setComment] = useState('')
+  const [relatedProduct, setRelatedProducts] = useState([])
 
 const dispatch = useDispatch()
+
+let { id } = useParams();
 
   const productDetails = useSelector((state) => state.productDetails)
   const { loading, error, product } = productDetails
@@ -42,12 +47,19 @@ const dispatch = useDispatch()
     }
   }, [dispatch, match, product._id,successProductReview])
 
- 
+  
 
   const addToCartHandler = () => {
     history.push(`/cart/${match.params.id}?qty=${qty}`)
   }
 
+  useEffect(() => {
+    (async function () {
+        const res = await axios.get(`/api/products/related-products/${id}`);
+          setRelatedProducts(res.data.relatedProduct); 
+    })();
+
+  }, []);
   const submitHandler = (e) => {
     e.preventDefault()
     dispatch(
@@ -145,6 +157,16 @@ const dispatch = useDispatch()
           </Card>
         </Col>
       </Row> )}
+      <div>
+        <h3>Recommendations for You</h3>
+        <Row>
+            {relatedProduct.map(product =>(
+                <Col key={product._id} sm={12} md={6} lg={4} xl={3}>
+                    <Product product={product} recommendedProduct />
+                </Col>
+            ))}
+        </Row>
+      </div>
       <Row>
       <Col md={6}>
               <h2>Reviews</h2>
